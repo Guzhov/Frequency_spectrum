@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Главная страница</title>
+
+</head>
+<body>
+    <h1>Загрузить файл в формате mp3</h1>
+    <br>
+    <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+    <br>
+    {%if filename%}
+    <div>
+        <h1>Частотный спектр</h1>
+        <p>Имя файла: {{filename.rsplit('.', 1)[0].lower()+'.mp3'}}</p>
+        <img src="{{ url_for('static', filename=filename)}}">
+    </div>
+    {%endif%}
+</body>
+</html>
